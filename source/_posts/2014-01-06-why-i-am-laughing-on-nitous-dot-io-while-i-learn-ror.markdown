@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Why I am laughing on Nitous.io while I learn RoR"
+title: "Why I am laughing on Nitrous.io while I learn RoR"
 date: 2014-01-06 17:48:03 +0000
 comments: true
 categories: 
