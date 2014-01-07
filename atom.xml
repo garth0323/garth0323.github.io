@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Garth's Coding Blog]]></title>
   <link href="http://garth0323.github.io/atom.xml" rel="self"/>
   <link href="http://garth0323.github.io/"/>
-  <updated>2014-01-06T23:49:02+00:00</updated>
+  <updated>2014-01-07T01:17:57+00:00</updated>
   <id>http://garth0323.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Garth Gaughan]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -22,6 +22,9 @@
 always tried to work in the cloud. I do not like being tied to one machine,
 and I hate the idea that I am responsible for saving files and risk losing
 them if a machine goes down.</p>
+
+<!-- more -->
+
 
 <p>For example, When Google Music became available I could not wait for an
 invite so that I did not have to store alof my music on my phone and
@@ -43,6 +46,9 @@ environment that nitrous.io seems like a benefit down the road as well.</p>
     <content type="html"><![CDATA[<p>Learning Ruby or probably any language is scary. It is exciting but scary. I
 had to learn to trust that things are going to work even when I don&rsquo;t
 understand why.</p>
+
+<!-- more -->
+
 
 <ul>
 <li>I understand that A + B = C</li>
