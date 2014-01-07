@@ -10,6 +10,7 @@ I am new to Ruby on Rails and coding in general. Up to this point I have
 always tried to work in the cloud. I do not like being tied to one machine,
 and I hate the idea that I am responsible for saving files and risk losing
 them if a machine goes down. 
+<!-- more -->
 
 
 For example, When Google Music became available I could not wait for an
