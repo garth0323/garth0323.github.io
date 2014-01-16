@@ -4,7 +4,7 @@
   <title><![CDATA[Garth's Coding Blog]]></title>
   <link href="http://garth0323.github.io/atom.xml" rel="self"/>
   <link href="http://garth0323.github.io/"/>
-  <updated>2014-01-16T02:50:45+00:00</updated>
+  <updated>2014-01-16T15:03:19+00:00</updated>
   <id>http://garth0323.github.io/</id>
   <author>
     <name><![CDATA[Garth Gaughan]]></name>
@@ -61,11 +61,7 @@ line:</p>
 </pre></td><td class='code'><pre><code class=''><span class='line'>shotgun -o, --host 0.0.0.0</span></code></pre></td></tr></table></div></figure>
 
 
-<p>to start the server:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>shotgun main.rb</span></code></pre></td></tr></table></div></figure>
-
+<p>This wil start the server.</p>
 
 <p>View it by going to any of the previews in Nitrous and then changing the
 end of the URL to 9393. This is the default port for shotgun.</p>
