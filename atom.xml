@@ -4,7 +4,7 @@
   <title><![CDATA[Garth's Coding Blog]]></title>
   <link href="http://garth0323.github.io/atom.xml" rel="self"/>
   <link href="http://garth0323.github.io/"/>
-  <updated>2014-01-07T02:00:56+00:00</updated>
+  <updated>2014-01-16T02:50:45+00:00</updated>
   <id>http://garth0323.github.io/</id>
   <author>
     <name><![CDATA[Garth Gaughan]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Implementing Sinatra and Shotgun on Nitrous.io]]></title>
+    <link href="http://garth0323.github.io/blog/2014/01/16/implementing-sinatra-and-shotgun-on-nitrous-dot-io/"/>
+    <updated>2014-01-16T02:41:34+00:00</updated>
+    <id>http://garth0323.github.io/blog/2014/01/16/implementing-sinatra-and-shotgun-on-nitrous-dot-io</id>
+    <content type="html"><![CDATA[<p>Configuring Sinatra and Shotgun on Nitrous.io is a pretty straightforward
+process once you have the commands to do so. Finding these was not easy for
+me and so I wanted to make it easy for others.</p>
+
+<!-- more -->
+
+
+<p>First thing you need to know is that nitrous.io needs to run on host
+&lsquo;0.0.0.0&rsquo; in order to work properly. The binding must be changed from
+the default of &lsquo;localhost&rsquo; for Sinatra and Shotgun.</p>
+
+<h4>Sinatra</h4>
+
+<p>Sinatra is pretty straightforward just put the following code in your
+main.rb file and this allows you to preview on port 3000 which is the
+nitrous.io default.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>configure :development do
+</span><span class='line'>  set :bind, '0.0.0.0'
+</span><span class='line'>  set :port, 3000
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Start your server with this in your console:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby main.rb</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Shotgun</h4>
+
+<p>Shotgun is a slightly more annoying but still fairly simple and handled
+from the command line. Once shotgun is installed put this in your command
+line:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>shotgun -o, --host 0.0.0.0</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to start the server:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>shotgun main.rb</span></code></pre></td></tr></table></div></figure>
+
+
+<p>View it by going to any of the previews in Nitrous and then changing the
+end of the URL to 9393. This is the default port for shotgun.</p>
+
+<p>There are still some workarounds necessary for developing on Nitrous but the
+upside still seems worth it to me.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Why I am laughing on Nitrous.io while I learn RoR]]></title>
