@@ -4,7 +4,7 @@
   <title><![CDATA[Garth's Coding Blog]]></title>
   <link href="http://garth0323.github.io/atom.xml" rel="self"/>
   <link href="http://garth0323.github.io/"/>
-  <updated>2014-01-16T15:03:19+00:00</updated>
+  <updated>2014-02-17T21:40:10+00:00</updated>
   <id>http://garth0323.github.io/</id>
   <author>
     <name><![CDATA[Garth Gaughan]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Bought a Mac]]></title>
+    <link href="http://garth0323.github.io/blog/2014/02/17/bought-a-mac/"/>
+    <updated>2014-02-17T21:28:54+00:00</updated>
+    <id>http://garth0323.github.io/blog/2014/02/17/bought-a-mac</id>
+    <content type="html"><![CDATA[<p>I bought a Macbook Pro for three reasons:</p>
+
+<ul>
+<li>I am learning Rails and there was too many problems on my Windows machine</li>
+<li>I wanted to fit in with the cool kids.</li>
+<li>I like paying more for accessories!</li>
+</ul>
+
+
+<p>Learning RoR is fun, frustrating, and many other things. Much of the frustration I was experiencing had to do with the
+disconnect between developing in Rails and Windows. I had thrown a temporary band-aid by using Nitrous.io for much of
+my develpoment needs.</p>
+
+<p>I decided to relieve myself fully of the frustration and buy a Macbook Pro Retina 13&#8221;. This has led to some temporary
+frustrating moments as well, we will call this a learning curne on my new machine. I am learning all the new tricks and
+tweaks I can do and I definitley enjoy developing on the Mac.</p>
+
+<p>I am a big fan of android and love my Motorola Maxx. I think I am still a long way from switching to the iphone. So don&rsquo;t
+call me an apple fanboy quite yet.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Implementing Sinatra and Shotgun on Nitrous.io]]></title>
@@ -61,7 +88,7 @@ line:</p>
 </pre></td><td class='code'><pre><code class=''><span class='line'>shotgun -o, --host 0.0.0.0</span></code></pre></td></tr></table></div></figure>
 
 
-<p>This wil start the server.</p>
+<p>This will start the server.</p>
 
 <p>View it by going to any of the previews in Nitrous and then changing the
 end of the URL to 9393. This is the default port for shotgun.</p>
