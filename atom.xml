@@ -4,7 +4,7 @@
   <title><![CDATA[Garth's Coding Blog]]></title>
   <link href="http://garth0323.github.io/atom.xml" rel="self"/>
   <link href="http://garth0323.github.io/"/>
-  <updated>2014-02-17T21:40:10+00:00</updated>
+  <updated>2014-02-17T21:51:59+00:00</updated>
   <id>http://garth0323.github.io/</id>
   <author>
     <name><![CDATA[Garth Gaughan]]></name>
@@ -23,7 +23,8 @@
 <ul>
 <li>I am learning Rails and there was too many problems on my Windows machine</li>
 <li>I wanted to fit in with the cool kids.</li>
-<li>I like paying more for accessories!</li>
+<li>I like paying more for accessories!
+<!-- more --></li>
 </ul>
 
 
