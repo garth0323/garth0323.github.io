@@ -4,7 +4,7 @@
   <title><![CDATA[Garth's Coding Blog]]></title>
   <link href="http://garth0323.github.io/atom.xml" rel="self"/>
   <link href="http://garth0323.github.io/"/>
-  <updated>2014-02-17T21:55:36+00:00</updated>
+  <updated>2014-03-26T15:55:39+00:00</updated>
   <id>http://garth0323.github.io/</id>
   <author>
     <name><![CDATA[Garth Gaughan]]></name>
@@ -12,6 +12,113 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Bcrypt and Rails 4: Step-by-Step]]></title>
+    <link href="http://garth0323.github.io/blog/2014/03/26/bcrypt-and-rails-4-step-by-step/"/>
+    <updated>2014-03-26T15:52:08+00:00</updated>
+    <id>http://garth0323.github.io/blog/2014/03/26/bcrypt-and-rails-4-step-by-step</id>
+    <content type="html"><![CDATA[<p>I am not a big fan of Devise for the expected reasons: size, lack of flexiibility, etc.
+I was creating my own authentication in my rails 4.0.2 app and trying to use bcrypt.
+Much of the documentation left out some simple items for noobs so I thought I
+would put together a step-by-step here.</p>
+
+<!-- more -->
+
+
+<blockquote><p>The main purpose of bcrypt-ruby is to change the password field
+into an unreadable more secure hash in your database. It is very easy to implement
+in rails 4 with has_secure_password.
+This is much easier than in earlier versions of rails as
+has_secure_password has the methods you need built in.</p></blockquote>
+
+<h2>Installation</h2>
+
+<p>In your gemfile:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>gem <span class="s1">&#39;bcrypt-ruby&#39;</span>, <span class="s1">&#39;~&gt; 3.0.1&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>bundle install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Do not use any version of bcrypt-ruby higher than 3.0.9 as rails does not yet support this.</p>
+
+<p>In your database, make sure that you name your password fields :password_digest,</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>class AddPasswordDigestToUsers &lt; ActiveRecord::Migration
+</span><span class='line'>  def change
+</span><span class='line'>      add_column :users, :password_digest, :string
+</span><span class='line'>  end
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is how I added :password_digest. There are other options such as doing a rake db:rollback and changing the name in the migration file and the db:migrate again.</p>
+
+<p>In the user.rb file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>class User &lt; ActiveRecord::Base
+</span><span class='line'>  has_secure_password validations: <span class="nb">false</span>
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>has_secure_password is all that is needed here but adding <em>validations: false</em> allows more flexibility and I can add my own validations. Again, this is optional.</p>
+
+<p>In your form make sure you use :password, here is an example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>&lt;div <span class="nv">class</span><span class="o">=</span><span class="s1">&#39;well&#39;</span>&gt;
+</span><span class='line'>    &lt;%<span class="o">=</span> form_tag <span class="s1">&#39;/login&#39;</span> <span class="k">do</span> %&gt;
+</span><span class='line'>      &lt;div <span class="nv">class</span><span class="o">=</span><span class="s1">&#39;control-group&#39;</span>&gt;
+</span><span class='line'>          &lt;%<span class="o">=</span> label_tag :username %&gt;
+</span><span class='line'>          &lt;%<span class="o">=</span> text_field_tag :username %&gt;
+</span><span class='line'>      &lt;/div&gt;
+</span><span class='line'>      &lt;div <span class="nv">class</span><span class="o">=</span><span class="s1">&#39;control-group&#39;</span>&gt;
+</span><span class='line'>          &lt;%<span class="o">=</span> label_tag :password %&gt;
+</span><span class='line'>          &lt;%<span class="o">=</span> password_field_tag :password %&gt;
+</span><span class='line'>      &lt;/div&gt;
+</span><span class='line'>      &lt;%<span class="o">=</span> submit_tag <span class="s1">&#39;Login&#39;</span>, class: <span class="s1">&#39;btn btn-success&#39;</span> %&gt;
+</span><span class='line'>  &lt;% end %&gt;
+</span><span class='line'>&lt;/div&gt;
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is left out of most of the documentation I found.</p>
+
+<p>Everything should work now. bcrypt-ruby 3.1 and up is supposed to work with
+ActiveRecord soon but I don&rsquo;t know the date.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bought a Mac]]></title>
